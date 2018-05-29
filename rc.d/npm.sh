@@ -17,7 +17,11 @@ __global() {
   echo 'PATH=~/.npm-global/bin:$PATH' >> ~/.profile
 }
 
-__install
-__global
+if [[ $1 == '--fake' ]]; then
+  echo "Fake - for testing"
+else
+  __install
+  __global
 
-source ~/.profile
+  source ~/.profile
+fi

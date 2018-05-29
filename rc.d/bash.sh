@@ -11,7 +11,11 @@ __bash() {
   ln -s ~/.bash/rc ~/.bashrc
 }
 
-__profile
-__bash
+if [[ $1 == '--fake' ]]; then
+  echo "Fake - for testing"
+else
+  __profile
+  __bash
 
-source ~/.bashrc
+  source ~/.bashrc
+fi

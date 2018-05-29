@@ -1,0 +1,12 @@
+#!/bin/bash
+
+shopt -s nullglob
+bash_scripts=(rc.d/*.sh)
+
+for script in ${bash_scripts[@]}; do
+  if [[ $1 == '--fake' ]]; then
+    source $script --fake
+  else
+    source $script
+  fi
+done
